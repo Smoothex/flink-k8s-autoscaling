@@ -10,8 +10,8 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.common.serialization.Serializer;
 import org.apache.log4j.Logger;
 
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
+// import redis.clients.jedis.Jedis;
+// import redis.clients.jedis.JedisPool;
 
 import java.io.File;
 import java.util.Map;
@@ -67,24 +67,24 @@ public class Run {
         KafkaProducer<String, AdEvent> kafkaProducer = new KafkaProducer<>(kafkaProps);
 
         // initialize jedis
-        String redisHost = producerProps.getProperty("redis.host");
-        int redisPort = Integer.parseInt(producerProps.getProperty("redis.port"));
-        JedisPool pool = new JedisPool(redisHost, redisPort);
-        Jedis jedis = pool.getResource();
+        // String redisHost = producerProps.getProperty("redis.host");
+        // int redisPort = Integer.parseInt(producerProps.getProperty("redis.port"));
+        // JedisPool pool = new JedisPool(redisHost, redisPort);
+        // Jedis jedis = pool.getResource();
 
         // reset redis
-        jedis.flushAll();
+        // jedis.flushAll();
 
         // write campaign ids
-        jedis.sadd("campaigns", Ads.campaignIds);
+        // jedis.sadd("campaigns", Ads.campaignIds);
 
         // assign 10 ads to each campaign
-        System.out.println("Writing ads to redis...");
+        /* System.out.println("Writing ads to redis...");
         for (int i = 0; i < Ads.campaignIds.length; i++) {
             for (int j = 0; j < 10; j++) {
                 jedis.set(Ads.adIds[i*10+j], Ads.campaignIds[i]);
             }
-        }
+        } */
 
         // initialize generation of ad events
         System.out.println("Generating ads...");
