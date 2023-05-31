@@ -1,3 +1,5 @@
+# This repo is adapted from [zlatinametodieva/flink-k8s-autoscaling](https://github.com/zlatinametodieva/flink-k8s-autoscaling) and has some slight adjustments (e.g., Redis connections removed)
+
 # yahoo_streaming_benchmark_experiment
 
 This repository consists of a Kafka event generator and a Flink processor. The code is adapted from the [Yahoo streaming benchmark](https://github.com/yahoo/streaming-benchmarks) (blog post [here](https://yahooeng.tumblr.com/post/135321837876/benchmarking-streaming-computation-engines-at)).
